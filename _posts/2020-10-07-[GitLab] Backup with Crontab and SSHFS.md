@@ -7,9 +7,6 @@ tags: [gitlab, backup, crontab, sshfs]
 comments: true
 ---
 
-
-# [GitLab] Backup with Crontab and SSHFS
-
 이전에 구현했던 GitLab 서버에 백업기능을 추가해보자.
 
 ## 요구사항
@@ -34,7 +31,7 @@ General Public Licence for details.
 
 만약 `rsync`가 설치되어 있지 않다면, 시스템 환경에 알맞는 명령어를 통해 설치해준다.
 
-``` console
+``` bash
 $ # Debian/Ubuntu
 $ sudo apt-get install rsync
 
@@ -47,7 +44,7 @@ $ sudo yum install rsync
 나는 백업파일을 개인서버에 저장할 것이기 때문에 SSHFS를 이용하여 먼저 백업서버를 마운트 해보도록 하겠다.
 
 다음 명령어를 통해 SSHFS 를 설치해주고, 백업서버를 마운트할 디렉토리를 생성해준다.
-```console
+``` bash
 $ sudo apt-get install sshfs
 $ sudo mkdir -p /mnt/backups
 ```
@@ -61,7 +58,7 @@ $ sshfs user@127.0.0.1:/home/user/backup /mnt/backups
 
 GitLab서버의 백업 위치를 마운트된 백업서버로 변경해주기 위해 `/etc/gitlab/gitlab.rb`를 수정해준다.
 
-```
+``` ruby
 gitlab_rails['backup_upload_connection']  =  {
   :provider  =>  'Local',
   :local_root  =>  '/mnt/backups' 
@@ -77,7 +74,7 @@ gitlab_rails['backup_archive_permissions']  =  0644  # Makes the backup archives
 ```
 
 마지막으로 `crontab`을 편집하여 gitlab-backup을 스케쥴링 해준다.
-```console
+``` bash
 $ sudo crontab -e
 
       1 # Edit this file to introduce tasks to be run by cron.
@@ -111,7 +108,7 @@ $ sudo crontab -e
 디스크 공간을 절약하기 위해 오래된 백업파일에 대해 수명제한을 걸 수 있다.
 
 다음과 같이 `/etc/gitlab/gitlab.rb`파일을 수정해준다.
-```console
+``` bash
 ## Limit backup lifetime to 7 days - 604800 seconds  
 gitlab_rails['backup_keep_time']  =  604800
 ```
