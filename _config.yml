@@ -73,6 +73,9 @@ kramdown:
     # Use existing pygments syntax highlighting css
     css_class: 'highlight'
 
+# Settings for Latex 
+markdown: kramdown
+highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
