@@ -1,0 +1,143 @@
+---
+published: true
+title: Lecture 5. Training Neural Networks Part II
+category: [CS231n]
+---
+
+## 0. Recap
+
+### Mini-batch SGD
+
+### Activation Functions
+
+> 활성화 함수 (Activation function)을 왜 사용해야 하는 지에 대해 궁금할 수 있는데, 이에 대한 설명은 다음과 같습니다.
+
+### Weight Initialization
+
+## 1. Parameter Updates
+
+### SGD 가 느린 이유
+
+### Momentum update
+
+### SGD vs Momentum
+
+### Nesterov Momentum update
+
+### AdaGrad update
+
+cache
+
+per-parameter apdaptive learning rate method
+
+> `1e-7` 는 Divide zero 를 방지하기 위한 상수
+
+문제점: step size 빠르게 변화 -> 조기 학습 종료
+
+### RMSProp update
+
+decay rate 도입으로 cache 값이 천천히 변화하도록하여 AdaGrad 의 문제점 해결
+
+### Adam update
+
+momentum + RMSProp-like 
+
+bias correction: warm up(scale up m, v)
+
+> best activation function? 
+> 1st order optimization method
+> next: 2nd order method
+
+### Second order optimization method
+
+Hessian
+
+Newton method
+
+#### BGFS and L-BFGS
+
+#### L-BFGS
+
+모든 소스의 노이즈 제거
+
+미니배치 환경에서는 잘 동작하지 않음
+
+### Summary
+
+## 2. Evaluation: Model Encsembles
+
+단일 모델 학습 대신 복수의 독립적인 모델 학습
+
+테스트 시간에 평균 결과를 사용한다.
+
+성능 향상 2%
+
+cons
+여러개의 모델 관리
+테스트 대상이 많아 선형적으로 테스트 속도가 느려짐
+
+### Tips/Tricks
+
+한 에폭을 돌 때 마다 체크포인트를 생성하는데, 체크포인트 간의 앙상블을 이용해도 성능향상에 도움이 된다.
+
+파라미터 벡터의 앙상블을 이용해도 성능향상데 도움이 된다.
+
+## 3. Regularization (Dropout)
+
+배치정규화를 사용하면서 드롭아웃을 사용하지 않기도 하는데, 알아 두어야 함.
+
+FC 상태에서 일부 노드들을 랜덤하게 disable함
+
+> *(asterisk)는 튜플을 unpack 하기 위해서 사용함.
+
+backward pass 때에도 dropout mask를 사용해서 dropout를 적용시킴
+
+neuron drop 이외에도 connection cutting 방법도 존재함
+
+### Dropout을 사용에 대한 해석
+
+1. 특징 추출을 중복을 허용
+
+2. 앙상블의 관점
+
+### Monte Carlo approximation
+
+비효율적
+
+테스트
+
+### Inverted dropout
+
+## 4. Convolutaional Neural Networks (CNN)
+
+### History
+
+#### Hubel & Wiesel
+
+#### NeuroCognitron
+
+**Topographical Mapping on cortex**
+**locality**
+**Hieralchical organization**
+
+sandwich architecture [Fukushima 1980]
+
+cannot be able to backpropagation
+
+simple cells(S): modifiable paramters
+complex cells(C): perform pooling
+
+adapted to ZIPCODE
+
+AlexNet
+
+Deep and larger network
+
+
+## 2. Learning rate schedules
+
+## 3. Dropout
+
+## 4. Gradient checking
+
+## 5. Model ensembles

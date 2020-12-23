@@ -46,7 +46,7 @@ google_analytics:
 # Your website URL (e.g. http://amitmerchant1990.github.io or http://www.amitmerchant.com)
 # Used for Sitemap.xml and your RSS feed
 url: http://middlebro.github.io
-enforce_ssl: https://www.amitmerchant.com/reverie
+enforce_ssl: https://middlebro.github.io
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
@@ -84,7 +84,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
 
-include: ['_pages']
+include: ['_pages', 'CS231n']
 
 paginate: 6
 paginate_path: /page:num/
