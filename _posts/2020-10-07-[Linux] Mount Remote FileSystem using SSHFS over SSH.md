@@ -2,8 +2,8 @@
 published: true
 layout: post
 title:  "[Linux] SSHFS를 통한 외부 저장소 마운트"
-categories: [Linux, Gitlab, SSHFS, mount]
-tags: [gitlab, backup, crontab, sshfs]
+categories: [Linux, GitLab, SSHFS]
+tags: [gitLab, crontab, sshfs]
 comments: true
 ---
  
