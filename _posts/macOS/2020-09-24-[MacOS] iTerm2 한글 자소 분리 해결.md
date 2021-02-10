@@ -1,9 +1,14 @@
-# [MacOS] iTerm2 한글 자소 분리 해결
+---
+published: true
+title: [macOS] iTerm2 한글 자소 분리 해결
+category: [macOS]
+use_math: true
+---
 
 포스트 글을 작성하던 중에 현재 작업 중인 디렉토리에 들어갈 일이 생겨서 터미널을 열어보니
 다음과 같이 파일 이름이 표시되는 경우가 발생하였다.
 
-![](./1.png)
+![](/images/macos/202009240001.png)
 
 ## 문제 원인
 * 모든 글자는 `유니코드`라는 산업 표준에 따라 표현하고 다루는데,
@@ -22,14 +27,14 @@ Windows와 macOS 등 서로 다른 방식으로 처리하기 때문
 ## 문제 해결 방법
 ### iTerm2
 
-![](./2.png)
-![](./3.png)
+![](/images/macos/202009240002.png)
+![](/images/macos/202009240003.png)
 
 * Preferences > Profiles > Text > Unicode > Unicode normalization form
 Unicode normalization form의 값으로 NFC를 선택
 
 ### iTerm2 화면 확인
-![](./4.png)
+![](/images/macos/202009240004.png)
 
 ## 참고 
 * [한글과 유니코드 - Pusnow](https://gist.github.com/Pusnow/aa865fa21f9557fa58d691a8b79f8a6d)
