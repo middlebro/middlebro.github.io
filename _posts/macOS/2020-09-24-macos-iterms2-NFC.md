@@ -1,8 +1,10 @@
 ---
 published: true
-title: [macOS] iTerm2 한글 자소 분리 해결
-category: [macOS]
-use_math: true
+layout: post
+title:  "[macOS] iTerm2 한글 자소 분리 해결"
+categories: [macOS]
+tags: [macOS, iterms2]
+comments: true
 ---
 
 포스트 글을 작성하던 중에 현재 작업 중인 디렉토리에 들어갈 일이 생겨서 터미널을 열어보니
